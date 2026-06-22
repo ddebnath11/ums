@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import umsLogo from '../assets/logo-main-svg.svg';
+---
+<div class="w-full bg-white flex justify-between items-center px-6 py-4 relative">
+  
+  <div class="relative z-50">
+    <Image src={umsLogo} alt="UMS Group" class="w-auto h-12" />
+  </div>
+
+  <div class="relative z-50">
+    <button 
+      id="custom-hamburger"
+      class="relative group"
+      data-state="closed"
+      aria-label="Toggle Menu"
+    >
+      <div class="cursor-pointer relative flex items-center justify-center rounded-full w-[50px] h-[50px] bg-transparent border border-transparent hover:border-[#424242] transition-all duration-300 ease-out hover:scale-110 group-[[data-state=open]]:ring-4 group-[[data-state=open]]:ring-[#424242]/30">
+
+        <div class="relative flex flex-col justify-between w-6 h-4 transition-all duration-300 overflow-hidden">
+          
+          <div class="bg-brand-secondary h-[2px] w-full transition-all duration-300 origin-left group-[[data-state=open]]:translate-x-8"></div>
+          <div class="bg-brand-secondary h-[2px] w-full rounded transition-all duration-300 group-[[data-state=open]]:translate-x-8 delay-75"></div>
+          <div class="bg-brand-secondary h-[2px] w-full transition-all duration-300 origin-left group-[[data-state=open]]:translate-x-8 delay-150"></div>
+
+          <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-[40px] group-[[data-state=open]]:-translate-x-1/2 flex items-center justify-center w-5 h-5 transition-all duration-500">
+            <div class="absolute bg-brand-secondary h-[2px] w-5 transition-all duration-500 rotate-0 delay-300 group-[[data-state=open]]:rotate-45"></div>
+            <div class="absolute bg-brand-secondary h-[2px] w-5 transition-all duration-500 -rotate-0 delay-300 group-[[data-state=open]]:-rotate-45"></div>
+          </div>
+
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <div 
+    id="menu-overlay" 
+    class="fixed inset-0 z-40 bg-brand-primary text-white flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+  >
+    <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold tracking-[-0.03em]">
+      <a href="/" class="hover:text-brand-gold transition-colors duration-200">Home</a>
+      <a href="/solutions/" class="hover:text-brand-gold transition-colors duration-200">Solutions</a>
+      <a href="/about/" class="hover:text-brand-gold transition-colors duration-200">About</a>
+      <a href="/work/" class="hover:text-brand-gold transition-colors duration-200">Work</a>
+      <a href="/blog/" class="hover:text-brand-gold transition-colors duration-200">Blog</a>
+    </nav>
+  </div>
+
+</div>
+
+<script>
+  const menuBtn = document.getElementById('custom-hamburger');
+  const overlay = document.getElementById('menu-overlay');
+
+  if (menuBtn && overlay) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = menuBtn.getAttribute('data-state') === 'open';
+      
+      if (!isOpen) {
+        // OPEN STATE CHANGES
+        menuBtn.setAttribute('data-state', 'open');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100', 'pointer-events-all');
+        // Prevent background body content scrolling behind overlay
+        document.body.style.overflow = 'hidden';
+      } else {
+        // CLOSED STATE CHANGES
+        menuBtn.setAttribute('data-state', 'closed');
+        overlay.classList.remove('opacity-100', 'pointer-events-all');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        // Restore standard layout scrolling capability
+        document.body.style.overflow = '';
+      }
+    });
+  }
+</script>
