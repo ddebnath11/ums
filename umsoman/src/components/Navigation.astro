@@ -1,21 +1,24 @@
 ---
+/*IMPORTS */
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import umsLogo from '../assets/logo-main-svg.svg';
 ---
-<div class="w-full bg-white flex justify-between items-center px-6 py-4 relative">
+<div class="w-full bg-brand-bg flex justify-between items-center px-6 py-4 relative">
   
   <div class="relative z-50">
     <Image src={umsLogo} alt="UMS Group" class="w-auto h-12" />
   </div>
 
   <div class="relative z-50">
+
     <button 
       id="custom-hamburger"
       class="relative group"
       data-state="closed"
       aria-label="Toggle Menu"
     >
+    
       <div class="cursor-pointer relative flex items-center justify-center rounded-full w-[50px] h-[50px] bg-transparent border border-transparent hover:border-[#424242] transition-all duration-300 ease-out hover:scale-110 group-[[data-state=open]]:ring-4 group-[[data-state=open]]:ring-[#424242]/30">
 
         <div class="relative flex flex-col justify-between w-6 h-4 transition-all duration-300 overflow-hidden">
@@ -36,15 +39,23 @@ import umsLogo from '../assets/logo-main-svg.svg';
 
   <div 
     id="menu-overlay" 
-    class="fixed inset-0 z-40 bg-brand-primary text-white flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+    class="p-4 fixed inset-0 z-40 bg-brand-primary flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
   >
-    <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold tracking-[-0.03em]">
-      <a href="/" class="hover:text-brand-gold transition-colors duration-200">Home</a>
-      <a href="/solutions/" class="hover:text-brand-gold transition-colors duration-200">Solutions</a>
-      <a href="/about/" class="hover:text-brand-gold transition-colors duration-200">About</a>
-      <a href="/work/" class="hover:text-brand-gold transition-colors duration-200">Work</a>
-      <a href="/blog/" class="hover:text-brand-gold transition-colors duration-200">Blog</a>
+    <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold tracking-[-0.03em] p-[2rem]">
+      <a href="/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Home</a>
+      <a href="/solutions/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Solutions</a>
+      <a href="/about/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">About</a>
+      <a href="/work/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Work</a>
+      <a href="/blog/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Blog</a>
+
     </nav>
+
+    <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
+  <p class="p-6 !text-[10px] uppercase tracking-wider font-primary font-light text-[#424242] text-center">
+    All rights reserved, United Media Services LLC, 2026
+  </p>
+</div>
+    
   </div>
 
 </div>
