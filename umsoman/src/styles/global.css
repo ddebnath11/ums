@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
 
 @theme {
   --color-brand-bg: #f2f2f2;
   --color-brand-primary: #FDAF17;
   --color-brand-secondary: #424242;
 
-  --font-primary: "Instrument Sans", sans-serif;
+  --font-primary: "Questrial", sans-serif;
 }
 
 @layer base {
@@ -19,9 +20,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: -0.03em;
-  }
+
 }
 
 body {
@@ -31,7 +30,6 @@ body {
 /*Font Globals*/
 
 h1 {
-  font-size: calc(96 / 16 * 1rem);
   font-family: var(--font-primary);
   font-weight: medium;
   color: var(--color-brand-secondary);
@@ -42,10 +40,10 @@ h1 span {
 }
 
 p {
-  font-size: calc(32 / 16 * 1rem);
   font-family: var(--font-primary);
 }
 
-h2 {
-  font-size: calc(64 / 16 * 1rem);
+button {
+  font-family: var(--font-primary);
 }
+

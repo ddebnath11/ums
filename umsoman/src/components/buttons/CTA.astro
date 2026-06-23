@@ -1,0 +1,19 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+<button class="bg-brand-primary pl-8 pr-3 py-3 rounded-full text-brand-secondary flex items-center gap-6 cursor-pointer border ">
+
+  <span class="font-primary tracking-wide text-sm">{ text }</span>
+
+  <div class="w-12 h-12 bg-brand-secondary flex rounded-full items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" class="text-brand-primary">
+  <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+</svg>
+
+  </div>
+
+</button>
