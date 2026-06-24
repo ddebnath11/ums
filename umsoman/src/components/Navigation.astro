@@ -3,22 +3,35 @@
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import umsLogo from '../assets/logo-main-svg.svg';
+
+interface Props {
+  pill: string;
+}
+
+const { pill } = Astro.props;
 ---
-<div class="w-full bg-brand-bg flex justify-between items-center px-6 py-4 relative">
+<div 
+  id="main-navbar"
+  class="fixed top-0 left-0 w-full z-50 bg-brand-bg/80 backdrop-blur-md px-6 lg:px-[120px] py-4 flex items-center justify-between border-b border-brand-secondary/5 transition-transform duration-500 ease-out"
+>
   
   <div class="relative z-50">
     <Image src={umsLogo} alt="UMS Group" class="w-auto h-8" />
   </div>
 
-  <div class="relative z-50">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
+    <div class="w-fit border border-brand-secondary p-2 md:p-4 lg:p-4 rounded-full text-xs font-brand-primary md:text-sm lg:text-[16px] pointer-events-auto">
+      {pill}
+    </div>
+  </div>
 
+  <div class="relative z-50">
     <button 
       id="custom-hamburger"
       class="relative group"
       data-state="closed"
       aria-label="Toggle Menu"
     >
-    
       <div class="cursor-pointer relative flex items-center justify-center rounded-full w-[50px] h-[50px] bg-transparent border border-transparent hover:border-[#424242] transition-all duration-300 ease-out hover:scale-110 group-[[data-state=open]]:ring-4 group-[[data-state=open]]:ring-[#424242]/30">
 
         <div class="relative flex flex-col justify-between w-6 h-4 transition-all duration-300 overflow-hidden">
@@ -35,32 +48,32 @@ import umsLogo from '../assets/logo-main-svg.svg';
         </div>
       </div>
     </button>
-  </div>
-
-  <div 
-    id="menu-overlay" 
-    class="p-4 fixed inset-0 z-40 bg-brand-primary flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
-  >
-    <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold p-[2rem]">
-      <a href="/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Home</a>
-      <a href="/solutions/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Solutions</a>
-      <a href="/about/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">About</a>
-      <a href="/work/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Work</a>
-      <a href="/blog/" class="text-white  transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Blog</a>
-
-    </nav>
-
-    <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
-  <p class="p-6 !text-[10px] uppercase tracking-wider font-primary font-light text-[#424242] text-center">
-    All rights reserved, United Media Services LLC, 2026
-  </p>
+  </div>   
 </div>
-    
-  </div>
 
+<div class="h-[82px] pointer-events-none"></div>
+
+<div 
+  id="menu-overlay" 
+  class="p-4 fixed inset-0 z-40 bg-brand-primary flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+>
+  <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold p-[2rem]">
+    <a href="/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Home</a>
+    <a href="/solutions/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Solutions</a>
+    <a href="/about/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">About</a>
+    <a href="/work/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Work</a>
+    <a href="/blog/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Blog</a>
+  </nav>
+
+  <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
+    <p class="p-6 !text-[10px] uppercase tracking-wider font-primary font-light text-[#424242] text-center">
+      All rights reserved, United Media Services LLC, 2026
+    </p>
+  </div>
 </div>
 
 <script>
+  // --- YOUR EXISTING OVERLAY CODE ENGINE ---
   const menuBtn = document.getElementById('custom-hamburger');
   const overlay = document.getElementById('menu-overlay');
 
@@ -69,20 +82,71 @@ import umsLogo from '../assets/logo-main-svg.svg';
       const isOpen = menuBtn.getAttribute('data-state') === 'open';
       
       if (!isOpen) {
-        // OPEN STATE CHANGES
         menuBtn.setAttribute('data-state', 'open');
         overlay.classList.remove('opacity-0', 'pointer-events-none');
         overlay.classList.add('opacity-100', 'pointer-events-all');
-        // Prevent background body content scrolling behind overlay
         document.body.style.overflow = 'hidden';
       } else {
-        // CLOSED STATE CHANGES
         menuBtn.setAttribute('data-state', 'closed');
         overlay.classList.remove('opacity-100', 'pointer-events-all');
         overlay.classList.add('opacity-0', 'pointer-events-none');
-        // Restore standard layout scrolling capability
         document.body.style.overflow = '';
       }
     });
   }
+
+  function initNavInactivityTracker() {
+    const navbar = document.getElementById('main-navbar');
+    const hamburger = document.getElementById('custom-hamburger');
+    if (!navbar) return;
+
+    let inactivityTimeout: number;
+    const INACTIVITY_LIMIT = 3000; // 3 SECONDS
+
+    function hideNavbar() {
+  
+        if (hamburger && hamburger.getAttribute('data-state') === 'open') {
+          resetTimer();
+          return;
+        }
+
+        navbar?.classList.add('nav-hidden');
+      }
+
+      function showNavbar() {
+        navbar?.classList.remove('nav-hidden');
+      }
+
+    function resetTimer() {
+      showNavbar();
+      clearTimeout(inactivityTimeout);
+      inactivityTimeout = window.setTimeout(hideNavbar, INACTIVITY_LIMIT);
+    }
+
+    const activityEvents = ['mousemove', 'mousedown', 'touchstart', 'keydown', 'scroll'];
+
+    activityEvents.forEach(event => {
+      window.addEventListener(event, resetTimer, { passive: true });
+    });
+
+    resetTimer();
+
+    return () => {
+      clearTimeout(inactivityTimeout);
+      activityEvents.forEach(event => {
+        window.removeEventListener(event, resetTimer);
+      });
+    };
+  }
+
+  let cleanupTracker: (() => void) | undefined;
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    cleanupTracker = initNavInactivityTracker();
+  });
+  
+  document.addEventListener('astro:after-swap', () => {
+    if (cleanupTracker) cleanupTracker();
+    cleanupTracker = initNavInactivityTracker();
+  });
 </script>

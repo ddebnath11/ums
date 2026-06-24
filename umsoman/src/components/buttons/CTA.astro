@@ -5,15 +5,25 @@ interface Props {
 
 const { text } = Astro.props;
 ---
-<button class="bg-brand-primary pl-8 pr-3 py-3 rounded-full text-brand-secondary flex items-center gap-6 cursor-pointer border ">
+<div class="flex items-center p-2 cursor-pointer">
+  
+  
+  <div class="bg-brand-primary px-6 py-3 md:px-8 md:py-4 lg:h-16 lg:px-10 lg:py-5 rounded-full text-brand-secondary flex items-center cursor-pointer border border-transparent font-medium transition-all">
+    
+    <span class="font-primary tracking-wide text-sm md:text-base lg:text-[20px] whitespace-nowrap">
+      { text }
+    </span>
+  </div>
 
-  <span class="font-primary tracking-wide text-sm">{ text }</span>
-
-  <div class="w-12 h-12 bg-brand-secondary flex rounded-full items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" class="text-brand-primary">
-  <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+  <div class="bg-brand-primary w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full text-brand-secondary flex items-center justify-center cursor-pointer border border-transparent shrink-0 transition-all">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8">
+  <g stroke-width="40">
+    <line x1="160" y1="480" x2="800" y2="480" />
+    <polyline points="560,240 800,480 560,720" />
+  </g>
 </svg>
+
 
   </div>
 
-</button>
+</div>

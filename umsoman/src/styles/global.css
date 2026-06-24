@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import "tailwindcss";
 
 
@@ -7,7 +8,7 @@
   --color-brand-primary: #FDAF17;
   --color-brand-secondary: #424242;
 
-  --font-primary: "Questrial", sans-serif;
+  --font-primary: "Manrope", sans-serif;
 }
 
 @layer base {
@@ -20,12 +21,26 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  @layer components {
+ 
+    .sidebar-brand-panel {
+      @apply fixed top-0 right-0 h-screen w-[300px] sm:w-[400px] z-40;
+      @apply bg-brand-primary text-brand-secondary;
+      @apply p-8 flex flex-col gap-8 shadow-2xl;
+      @apply border-l border-brand-secondary/10;
+    }
+  } 
 
+  @layer utilities {
+    .nav-hidden {
+    transform: translateY(-100%) !important;
+  }
+  
+  }
 }
 
-body {
-  padding: 1rem;
-}
+
+
 
 /*Font Globals*/
 
@@ -45,5 +60,10 @@ p {
 
 button {
   font-family: var(--font-primary);
+}
+
+html, body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
 }
 
