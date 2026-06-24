@@ -6,7 +6,7 @@
 
 
 @theme {
-  --color-brand-bg: #f2f2f2;
+  --color-brand-bg: #FFF6E4;
   --color-brand-primary: #FDAF17;
   --color-brand-secondary: #424242;
 
@@ -66,8 +66,8 @@
   
   body::before {
     background: 
-      radial-gradient(circle at 10% 20%, #ffe9be 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      radial-gradient(circle at 10% 20%, #ffefce 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(247, 246, 183, 0.358) 0%, transparent 50%);
     background-size: 200% 200%;
     animation: ambientLightLeak 25s ease-in-out infinite alternate;
   }
