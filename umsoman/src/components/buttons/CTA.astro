@@ -5,25 +5,25 @@ interface Props {
 
 const { text } = Astro.props;
 ---
-<div class="flex items-center p-2 cursor-pointer">
+<div class="group flex flex-row lg:flex-row items-center p-2 cursor-pointer w-fit">
   
-  
-  <div class="bg-brand-primary px-6 py-3 md:px-8 md:py-4 lg:h-16 lg:px-10 lg:py-5 rounded-full text-brand-secondary flex items-center cursor-pointer border border-transparent font-medium transition-all">
-    
-    <span class="font-primary tracking-wide text-sm md:text-base lg:text-[20px] whitespace-nowrap">
+  <div class="bg-brand-primary w-12 h-12 md:w-14 md:h-14 lg:w-0 lg:h-16 lg:scale-0 lg:opacity-0 lg:group-hover:w-16 lg:group-hover:scale-100 lg:group-hover:opacity-100 rounded-full text-brand-secondary flex items-center justify-center border border-transparent shrink-0 transition-all duration-300 ease-out">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8">
+      <g stroke-width="40">
+        <line x1="160" y1="480" x2="800" y2="480" />
+        <polyline points="560,240 800,480 560,720" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="bg-brand-primary px-6 py-3 md:px-8 md:py-4 lg:h-16 lg:px-10 lg:py-5 lg:group-hover:ml-4 rounded-full text-brand-secondary flex items-center border border-transparent font-medium transition-all duration-300 ease-out">
+    <span class="font-secondary tracking-wide text-sm md:text-base lg:text-[20px] whitespace-nowrap">
       { text }
     </span>
   </div>
 
-  <div class="bg-brand-primary w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full text-brand-secondary flex items-center justify-center cursor-pointer border border-transparent shrink-0 transition-all">
-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8">
-  <g stroke-width="40">
-    <line x1="160" y1="480" x2="800" y2="480" />
-    <polyline points="560,240 800,480 560,720" />
-  </g>
-</svg>
+  
 
 
-  </div>
 
 </div>

@@ -24,9 +24,23 @@ const {
 
 <div class="w-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center gap-6 md:gap-8 py-6">
 
-  <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-bold leading-normal">{ titleBeforeGold }<span class="text-brand-primary">{ titleGoldWord }</span> {titleAfterGold}</h1>
+  <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-primary leading-normal">{ titleBeforeGold }<span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-300 ease-out hover:scale-110 hover:rotate-3 group">
+  
+  <svg class="absolute inset-0 w-full h-full stroke-brand-primary opacity-20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
+       viewBox="0 0 100 100" 
+       preserveAspectRatio="none">
+    <path d="M5,50 C5,15 95,10 95,50 C95,90 10,95 8,53 C7,35 40,8 85,15" 
+          stroke-width="2" 
+          stroke-linecap="round"/>
+  </svg>
 
-  <p class="text-sm text-brand-secondary md:text-sm lg:text-[20px]">{ subtitle }</p>
+  <span class="relative z-10">
+    { titleGoldWord }
+  </span>
+
+</span> {titleAfterGold}</h1>
+
+  <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{ subtitle }</p>
 
   <CTA text= `${ buttonAction }`/>
 

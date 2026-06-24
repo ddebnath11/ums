@@ -12,7 +12,7 @@ const { pill } = Astro.props;
 ---
 <div 
   id="main-navbar"
-  class="fixed top-0 left-0 w-full z-50 bg-brand-bg/80 backdrop-blur-md px-6 lg:px-[120px] py-4 flex items-center justify-between border-b border-brand-secondary/5 transition-transform duration-500 ease-out"
+  class="fixed top-0 left-0 w-full z-50 bg-brand-primary/90 backdrop-blur-md px-6 lg:px-[120px] py-4 flex items-center justify-between border-b border-brand-secondary/5 transition-transform duration-500 ease-out"
 >
   
   <div class="relative z-50">
@@ -20,7 +20,7 @@ const { pill } = Astro.props;
   </div>
 
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-    <div class="w-fit border border-brand-secondary p-2 md:p-4 lg:p-4 rounded-full text-xs font-brand-primary md:text-sm lg:text-[16px] pointer-events-auto">
+    <div class="w-fit border border-brand-secondary p-2 md:p-4 lg:p-4 rounded-full text-xs font-secondary md:text-sm lg:text-[16px] pointer-events-auto">
       {pill}
     </div>
   </div>
@@ -51,13 +51,11 @@ const { pill } = Astro.props;
   </div>   
 </div>
 
-<div class="h-[82px] pointer-events-none"></div>
-
 <div 
   id="menu-overlay" 
-  class="p-4 fixed inset-0 z-40 bg-brand-primary flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+  class="p-4 fixed inset-0 z-40 bg-brand-primary/75 backdrop-blur-md flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
 >
-  <nav class="flex flex-col items-center gap-8 text-3xl font-primary font-bold p-[2rem]">
+  <nav class="flex flex-col items-center gap-8 text-3xl font-secondary font-bold p-[2rem]">
     <a href="/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Home</a>
     <a href="/solutions/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Solutions</a>
     <a href="/about/" class="text-white transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">About</a>
@@ -66,7 +64,7 @@ const { pill } = Astro.props;
   </nav>
 
   <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
-    <p class="p-6 !text-[10px] uppercase tracking-wider font-primary font-light text-[#424242] text-center">
+    <p class="p-6 !text-[10px] uppercase tracking-wider text-[#424242] text-center font-secondary">
       All rights reserved, United Media Services LLC, 2026
     </p>
   </div>
