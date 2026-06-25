@@ -25,6 +25,40 @@ import '../styles/global.css';
     
        <slot />
 
+       <script>
+      import Lenis from 'lenis';
+
+      function initSmoothScroll() {
+        // Initialize the scroll engine with luxury deceleration mechanics
+        const lenis = new Lenis({
+          duration: 1.2,       // How long the glide transition lasts (in seconds)
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Premium exponential ease-out curve
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,   // Capture mouse wheel actions
+          wheelMultiplier: 1,  // Adjust velocity pace factor if needed
+          touchMultiplier: 2,
+          infinite: false,
+        });
+
+        // Setup the continuous animation frame cycle loop
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+      }
+
+      // 🛡️ Safe Execution triggers across standard loads and Astro view transition routing changes
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSmoothScroll);
+      } else {
+        initSmoothScroll();
+      }
+      document.addEventListener('astro:after-swap', initSmoothScroll);
+    </script>
+
 
     
   </body>

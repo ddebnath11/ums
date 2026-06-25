@@ -56,11 +56,11 @@ const { pill } = Astro.props;
   class="p-4 fixed inset-0 z-40 bg-brand-bg/90 backdrop-blur-md flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
 >
   <nav class="flex flex-col items-center gap-8 text-4xl font-secondary font-bold p-[2rem]">
-    <a href="/" class="text-brand-primary transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Home</a>
-    <a href="/solutions/" class="text-brand-primary transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Solutions</a>
-    <a href="/about/" class="text-brand-primary transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">About</a>
-    <a href="/work/" class="text-brand-primary transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Work</a>
-    <a href="/blog/" class="text-brand-primary transform transition-all duration-200 hover:text-brand-secondary hover:scale-110">Blog</a>
+    <a href="/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Home</a>
+    <a href="/solutions/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Solutions</a>
+    <a href="/about/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">About</a>
+    <a href="/work/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Work</a>
+    <a href="/blog/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Blog</a>
   </nav>
 
   <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
@@ -99,7 +99,9 @@ const { pill } = Astro.props;
     if (!navbar) return;
 
     let inactivityTimeout: number;
-    const INACTIVITY_LIMIT = 3000; // 3 SECONDS
+    
+    const timeInSec = (10 * 1000)
+    const INACTIVITY_LIMIT = timeInSec; //  SECONDS
 
     function hideNavbar() {
   

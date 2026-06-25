@@ -3,6 +3,7 @@
 import { Image } from 'astro:assets';
 import umsLogo from '../assets/logo-main-svg.svg';
 import CTA from '../buttons/CTA.astro';
+import downArrow from '/src/assets/downarrow.svg'
 
 interface Props {
   titleBeforeGold: string;
@@ -24,24 +25,36 @@ const {
 
 <div class="w-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center gap-6 md:gap-8 py-6">
 
-  <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-primary leading-normal">{ titleBeforeGold }<span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-300 ease-out hover:scale-110 hover:rotate-3 group">
-  
-  <svg class="absolute inset-0 w-full h-full stroke-brand-primary opacity-20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
-       viewBox="0 0 100 100" 
-       preserveAspectRatio="none">
-    <path d="M5,50 C5,15 95,10 95,50 C95,90 10,95 8,53 C7,35 40,8 85,15" 
-          stroke-width="2" 
-          stroke-linecap="round"/>
-  </svg>
+  <div class="animate-blur-in">
 
-  <span class="relative z-10">
-    { titleGoldWord }
-  </span>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-primary leading-normal">{ titleBeforeGold }<span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-300 ease-out hover:scale-110 hover:rotate-3 group">
+      
+      <svg class="absolute inset-0 w-full h-full stroke-brand-primary opacity-20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
+          viewBox="0 0 100 100" 
+          preserveAspectRatio="none">
+        <path d="M5,50 C5,15 95,10 95,50 C95,90 10,95 8,53 C7,35 40,8 85,15" 
+              stroke-width="2" 
+              stroke-linecap="round"/>
+      </svg>
 
-</span> {titleAfterGold}</h1>
+      <span class="relative z-10 font-bold">
+        { titleGoldWord }
+      </span>
 
-  <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{ subtitle }</p>
+    </span> {titleAfterGold}</h1>
+</div>
 
-  <CTA text= `${ buttonAction }`/>
+  <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px] animate-reveal-up">{ subtitle }</p>
+
+  <div class="animate-fade-up">
+
+    <CTA text= `${ buttonAction }`/>
+
+  </div>
+
+  <div class="flex flex-col items-center justify-center gap-1 cursor-pointer select-none animate-fluid-float text-brand-secondary/60 hover:text-brand-secondary transition-colors duration-300 animate-fade-up">
+  <div class="text-xs md:text-sm font-secondary tracking-widest uppercase">Scroll</div>
+  <Image src={downArrow} alt="Down Arrow" class="w-4 h-4 md:w-5 md:h-5 opacity-80" />
+</div>
 
 </div>
