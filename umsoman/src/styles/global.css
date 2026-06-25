@@ -31,6 +31,13 @@ html.lenis body {
   --color-brand-primary: #FDAF17;
   --color-brand-secondary: #424242;
 
+  --color-domain-adv: #DB8032;
+  --color-domain-digital: #1BA3DD;
+  --color-domain-social: #D91B56;
+  --color-domain-pub: #ED1C24;
+  --color-domain-events: #C0AE00;
+  --color-domain-pr: #F1592A;
+
   --font-primary: "Instrument Serif", sans-serif;
   --font-secondary: "Instrument Sans", sans-serif;
 }

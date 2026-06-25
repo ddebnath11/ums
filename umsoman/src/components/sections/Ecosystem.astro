@@ -1,4 +1,6 @@
 ---
+import DomainCard from "../cards/DomainCard.astro";
+
 ---
 <div class="w-full flex flex-col items-center justify-center text-left gap-6 //reveal-on-scroll">
 
@@ -19,44 +21,48 @@
 
    <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">Everything you need to make your brand complete, in one place.</p>
 
-<div class="flex flex-col gap-3 w-full lg:flex-row">
+<div class="flex flex-col gap-4 w-full lg:flex-row lg:gap-6">
+
+  <DomainCard 
+     cardTitle="ENGAGE"
+
+     domainOne="Advertising"
+     domainOneC="bg-domain-adv"
+
+     domainTwo="Digital"
+     domainTwoC="bg-domain-digital"
+
+     domainThree="Social"
+     domainThreeC="bg-domain-social"
+  />
+
+    <DomainCard 
+     cardTitle="AMPLIFY"
+
+     domainOne="Publishing"
+     domainOneC="bg-domain-pub"
+
+     domainTwo="Events"
+     domainTwoC="bg-domain-events"
+
+     domainThree="PR"
+     domainThreeC="bg-domain-pr"
+  />
+
+    <DomainCard 
+     cardTitle="SCALE"
+
+     domainOne="Government Consultancy"
+     domainOneC="bg-domain-adv"
+
+     domainTwo="Media Consultancy"
+     domainTwoC="bg-domain-digital"
+
+     domainThree="Online Media Assets"
+     domainThreeC="bg-domain-social"
+  />
   
-  <div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-4xl bg-brand-bg">
-    <h2 class="text-2xl">ENGAGE</h2>
-    
-    <div class="w-full flex flex-row items-start  text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg">
-
-        <div class="w-5 h-5 bg-amber-400 rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px]">
-        </div>
-
-        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">Advertising</p>
-      
-
-    </div>
-
-
-
-
+ 
   </div>
 
-  <div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full  bg-brand-bg">
-    <h2 class="text-2xl">AMPLIFY</h2>
-    <!-- CARD CONTENT HERE -->
-
-
-
-
-  </div>
-
-  <div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg">
-    <h2 class="text-2xl">SCALE</h2>
-    <!-- CARD CONTENT HERE -->
-
-
-
-
-  </div>
-
-
-</div>
-</div>
+  

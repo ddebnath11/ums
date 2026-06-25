@@ -1,0 +1,41 @@
+---
+interface Props {
+  cardTitle: string;
+
+  domainOne: string;
+  domainTwo: string;
+  domainThree: string;
+
+  domainOneC: string;
+  domainTwoC: string;
+  domainThreeC: string;
+}
+
+const { 
+  cardTitle, domainOne, domainTwo, domainThree, domainOneC, domainTwoC, domainThreeC
+} = Astro.props;
+---
+<div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-4xl bg-brand-bg">
+    <h2 class="text-2xl lg:text-4xl">{ cardTitle }</h2>
+    
+    <div class="w-full flex flex-row items-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg">
+        {/* 🎯 Fixed Dynamic Syntax */}
+        <div class={`w-5 h-5 ${domainOneC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0`}>
+        </div>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainOne}</p>
+    </div>
+
+    <div class="w-full flex flex-row items-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg">
+        {/* 🎯 Fixed Dynamic Syntax */}
+        <div class={`w-5 h-5 ${domainTwoC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0`}>
+        </div>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainTwo}</p>
+    </div>
+
+    <div class="w-full flex flex-row items-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg">
+        {/* 🎯 Fixed Dynamic Syntax */}
+        <div class={`w-5 h-5 ${domainThreeC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0`}>
+        </div>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainThree}</p>
+    </div>
+</div>
