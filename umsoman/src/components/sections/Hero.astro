@@ -23,25 +23,44 @@ const {
 
 ---
 
-<div class="w-full min-h-[calc(100vh-2rem)] md:min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center gap-6 md:gap-8 py-6">
+<div class="w-full flex flex-col items-center justify-start text-center gap-6 md:gap-8 pt-28 md:pt-24 pb-12">
 
   <div class="animate-blur-in">
 
-      <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-primary leading-normal">{ titleBeforeGold }<span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-300 ease-out hover:scale-110 hover:rotate-3 group">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-primary leading-normal">{ titleBeforeGold }
+        
+      <span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-600 ease-out hover:scale-120 hover:rotate-3 group animate-paper-flex ">
       
-      <svg class="absolute inset-0 w-full h-full stroke-brand-primary opacity-20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
+      <svg class="absolute inset-0 w-full h-full stroke-brand-primary/60 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
           viewBox="0 0 100 100" 
           preserveAspectRatio="none">
         <path d="M5,50 C5,15 95,10 95,50 C95,90 10,95 8,53 C7,35 40,8 85,15" 
-              stroke-width="2" 
+              stroke-width="1" 
               stroke-linecap="round"/>
       </svg>
 
-      <span class="relative z-10 font-bold">
-        { titleGoldWord }
-      </span>
+<div class="relative inline-block lg:group cursor-default lg:cursor-pointer">
+  
+  <span class="relative z-10 inline-block font-bold font-special border border-brand-secondary/60 rounded-full px-3 py-1 bg-brand-bg text-brand-primary
+    transition-all duration-200 ease-out
+    lg:group-hover:-translate-y-1 lg:group-hover:-translate-x-0.5 lg:group-hover:bg-brand-primary lg:group-hover:text-brand-secondary lg:group-hover:shadow-[4px_4px_0px_0px_rgba(var(--color-secondary),0.15)]">
+    { titleGoldWord }
+  </span>
 
-    </span> {titleAfterGold}</h1>
+  {/* <div class="absolute left-0 top-full mt-2 w-50 h-50 bg-brand-bg border border-brand-secondary/60 rounded-2xl p-2 shadow-xl overflow-hidden
+    hidden lg:block lg:opacity-0 lg:scale-95 lg:pointer-events-none transition-all duration-300 ease-out z-50
+    lg:group-hover:opacity-100 lg:group-hover:scale-100 lg:group-hover:pointer-events-auto">
+    
+    <img 
+      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop" 
+      alt="Ecosystem Showcase" 
+      class="w-full h-full object-cover rounded-xl"
+    />
+  </div> */}
+
+</div>
+
+    </span> {titleAfterGold}</h1> 
 </div>
 
   <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px] animate-reveal-up">{ subtitle }</p>
@@ -52,9 +71,14 @@ const {
 
   </div>
 
-  <div class="flex flex-col items-center justify-center gap-1 cursor-pointer select-none animate-fade-up animate-fluid-float text-brand-secondary/60 hover:text-brand-secondary transition-colors duration-300 ">
-  <div class="text-xs md:text-sm font-secondary tracking-widest uppercase">Scroll</div>
-  <Image src={downArrow} alt="Down Arrow" class="w-4 h-4 md:w-5 md:h-5 opacity-80" />
+  <div class="flex flex-col items-center justify-center gap-1 cursor-pointer select-none animate-fade-up text-brand-secondary/60 hover:text-brand-secondary transition-colors duration-300 ">
+  <div class="text-xs md:text-sm font-secondary tracking-widest uppercase animate-fluid-float">Scroll</div>
+  <Image src={downArrow} alt="Down Arrow" class="w-4 h-4 md:w-5 md:h-5 opacity-80 animate-fluid-float" />
 </div>
+
+
+
+
+
 
 </div>

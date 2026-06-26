@@ -1,0 +1,21 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+<div class="group flex flex-row lg:flex-row items-center p-2 cursor-pointer w-fit">
+
+  <div class="bg-brand-bg px-6 py-3 md:px-8 md:py-4 lg:h-16 lg:px-10 lg:py-5 
+  rounded-full text-brand-secondary flex items-center border border-brand-secondary/60 font-medium 
+  transition-all duration-200 ease-out cursor-pointer
+  lg:hover:-translate-y-1 lg:hover:-translate-x-0.5 lg:hover:shadow-[4px_4px_0px_0px_#FDAF17]"> 
+
+      <span class="font-secondary tracking-wide text-sm md:text-base lg:text-[20px] whitespace-nowrap">
+        { text }
+      </span>
+  
+  </div>
+
+</div>

@@ -1,12 +1,12 @@
 ---
+import ButtonOutline from "../buttons/buttonOutline.astro";
 import DomainCard from "../cards/DomainCard.astro";
-
 ---
-<div class="w-full flex flex-col items-center justify-center text-left gap-6 //reveal-on-scroll">
+<div class="w-full flex flex-col items-center justify-center text-left gap-6 reveal-on-scroll">
 
   <h1 class="text-4xl md:text-6xl lg:text-6xl text-brand-secondary font-primary leading-normal">A Complete Media <span class="text-brand-primary inline-block relative px-4 py-2 transition-all duration-300 ease-out hover:scale-110 hover:rotate-3 group">
       
-      <svg class="absolute inset-0 w-full h-full stroke-brand-primary opacity-20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
+      <svg class="absolute inset-0 w-full h-full stroke-brand-primary/20 fill-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-120" 
           viewBox="0 0 100 100" 
           preserveAspectRatio="none">
         <path d="M5,50 C5,15 95,10 95,50 C95,90 10,95 8,53 C7,35 40,8 85,15" 
@@ -14,7 +14,7 @@ import DomainCard from "../cards/DomainCard.astro";
               stroke-linecap="round"/>
       </svg>
 
-      <span class="relative z-10 font-bold">
+      <span class="relative z-10 font-bold font-special">
         Ecosystem
       </span>   
   </h1>
@@ -45,7 +45,7 @@ import DomainCard from "../cards/DomainCard.astro";
      domainTwo="Events"
      domainTwoC="bg-domain-events"
 
-     domainThree="PR"
+     domainThree="Public Relations"
      domainThreeC="bg-domain-pr"
   />
 
@@ -53,16 +53,19 @@ import DomainCard from "../cards/DomainCard.astro";
      cardTitle="SCALE"
 
      domainOne="Government Consultancy"
-     domainOneC="bg-domain-adv"
+     domainOneC="bg-domain-gov"
 
      domainTwo="Media Consultancy"
-     domainTwoC="bg-domain-digital"
+     domainTwoC="bg-domain-mediaconsulting"
 
      domainThree="Online Media Assets"
-     domainThreeC="bg-domain-social"
+     domainThreeC="bg-domain-onlinemedia"
   />
+
   
- 
-  </div>
+
+</div>
+
+<ButtonOutline text="See More"/>
 
   
