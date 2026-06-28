@@ -2,18 +2,17 @@
 interface Props {
   videoMp4: string;
   videoWebm?: string;
-  posterImage: string;
 }
 
-const { videoMp4, videoWebm, posterImage } = Astro.props;
+const { videoMp4, videoWebm } = Astro.props;
 ---
-
-<div class="w-full aspect-video rounded-2xl md:rounded-[32px] overflow-hidden bg-brand-primary/5 border border-brand-secondary/10 shadow-2xl relative group animate-reveal-up z-1">
+<div class="p-0 lg:px-0">
+<div class="w-full aspect-video md:overflow-hidden bg-brand-primary/5 relative group animate-reveal-up z-1">
   
   <video
     id="ums-showreel"
-    class="w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-out pointer-events-auto"
-    poster={posterImage}
+    class="w-full h-full object-cover pointer-events-auto"
+    autoplay
     loop
     muted
     controls
@@ -25,61 +24,30 @@ const { videoMp4, videoWebm, posterImage } = Astro.props;
     Your browser does not support the video tag.
   </video>
 
-  <div 
-    id="showreel-trigger"
-    class="absolute inset-0 flex items-center justify-center cursor-pointer bg-cover bg-center transition-all duration-500 z-10"
-    style={`background-image: url('${posterImage}');`}
-  >
-    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
-
-    <div 
-      cursor-pointer
-      class="relative z-20 w-16 h-16 md:w-24 md:h-24 rounded-full bg-brand-primary text-brand-secondary flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 ease-out"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 md:w-10 md:h-10 translate-x-[2px]">
-        <path d="M8 5v14l11-7z" />
-      </svg>
-    </div>
-  </div>
-
+</div>
 </div>
 
 <script>
   function initShowreel() {
     const video = document.getElementById('ums-showreel') as HTMLVideoElement | null;
-    const trigger = document.getElementById('showreel-trigger');
 
-    if (!video || !trigger) return;
+    if (!video) return;
 
-    //LAZY LOAD
+    // LAZY LOAD ASSETS
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          
           video.preload = 'metadata';
+          // 🎯 Force the browser play engine once the container scrolls into view
+          video.play().catch(err => console.log("Autoplay interrupted:", err));
           observer.unobserve(video);
         }
       });
-    }, { rootMargin: '200px' }); // Triggers 200px before the element enters the viewport window
+    }, { rootMargin: '200px' }); 
 
     observer.observe(video);
-
-    // B. INTERACTIVE PLAY COMMAND CAPTURE LOOP
-    trigger.addEventListener('click', () => {
-      // Hide visual overlay layer smoothly
-      trigger.style.opacity = '0';
-      trigger.style.pointerEvents = 'none';
-
-      // Transition the raw video canvas overlay container into complete visibility parameters
-      video.classList.remove('opacity-0');
-      video.classList.add('opacity-100');
-
-      // Force video execution audio/visual streaming threads
-      video.play();
-    });
   }
 
-  // Bind execution to cover basic initial load and subsequent page transition routing passes
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initShowreel);
   } else {

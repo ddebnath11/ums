@@ -12,7 +12,7 @@ const { pill } = Astro.props;
 ---
 <div 
   id="main-navbar"
-  class="fixed top-0 left-0 w-full z-50 bg-brand-bg/50 backdrop-blur-3xl px-6 lg:px-[120px] py-4 flex items-center justify-between border-b border-brand-secondary transition-transform duration-500 ease-out"
+  class="fixed top-0 left-0 w-full z-50 bg-brand-bg/100 backdrop-blur-5xl px-6 lg:px-[120px] py-4 flex items-center justify-between border-b border-brand-secondary transition-transform duration-500 ease-out"
 >
   
   <div class="relative z-50">
@@ -34,7 +34,7 @@ const { pill } = Astro.props;
     >
       <div class="cursor-pointer relative flex items-center justify-center rounded-full w-[50px] h-[50px] bg-transparent border border-transparent hover:border-[#424242] transition-all duration-300 ease-out hover:scale-110 group-[[data-state=open]]:ring-4 group-[[data-state=open]]:ring-[#424242]/30">
 
-        <div class="relative flex flex-col justify-between w-6 h-4 transition-all duration-300 overflow-hidden">
+        <div class="relative flex flex-col justify-between w-6 h-4 transition-all duration-300 overflow-hidden cursor-pointer">
           
           <div class="bg-brand-secondary h-[2px] w-full transition-all duration-300 origin-left group-[[data-state=open]]:translate-x-8"></div>
           <div class="bg-brand-secondary h-[2px] w-full rounded transition-all duration-300 group-[[data-state=open]]:translate-x-8 delay-75"></div>

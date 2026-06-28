@@ -1,0 +1,81 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote: "UMS completely transformed our digital footprint. Their integrated ecosystem approach is unmatched.",
+    author: "Al-Balushi",
+    role: "Marketing Director",
+    company: "Oman Logistics Corp"
+  },
+  {
+    quote: "The strategic media consultancy provided clarity when navigating a complex corporate scaling phase.",
+    author: "Sarah Ahmed",
+    role: "Head of Communications",
+    company: "Apex Tech"
+  },
+  {
+    quote: "Flawless execution across public relations and digital advertising. A truly complete media partner.",
+    author: "Faisal Al-Saeed",
+    role: "Chief Operating Officer",
+    company: "National Energy Group"
+  },
+  {
+    quote: "Their focus on structured, design-forward campaign assets elevated our brand's market authority instantly.",
+    author: "Elena Rostova",
+    role: "VP of Brand",
+    company: "Swaraj Atelier"
+  }
+];
+---
+
+<div class="w-full py-8 overflow-hidden relative bg-transparent border-y border-brand-secondary/10 rounded-4xl">
+  
+  <div class="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-brand-bg to-transparent z-10 pointer-events-none"></div>
+
+  <div class="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-brand-bg to-transparent z-10 pointer-events-none"></div>
+
+  <div class="flex w-max items-center gap-6 animate-testimonial-loop hover:[animation-play-state:paused]">
+    
+    <div class="flex items-center gap-6 shrink-0">
+      {testimonials.map((t) => (
+        <div class="w-[350px] md:w-[450px] flex flex-col justify-between items-start text-left border border-brand-secondary/40 p-6 md:p-8 rounded-4xl bg-brand-bg h-64 transition-all duration-300 hover:border-brand-primary group cursor-pointer">
+
+          <p class="font-secondary text-sm md:text-base text-brand-secondary/80 group-hover:text-brand-secondary transition-colors duration-300 leading-relaxed italic lg:text-[20px]">
+            "{t.quote}"
+          </p>
+          
+          <div class="flex flex-col items-start gap-1 mt-4">
+            <h4 class="font-primary font-bold text-sm md:text-base text-brand-secondary">{t.author}</h4>
+            <p class="font-secondary text-xs text-brand-secondary/60">
+              {t.role}, <span class="text-brand-primary font-medium">{t.company}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-6 shrink-0" aria-hidden="true">
+      {testimonials.map((t) => (
+        <div class="w-[350px] md:w-[450px] flex flex-col justify-between items-start text-left border border-brand-secondary/40 p-6 md:p-8 rounded-4xl bg-brand-bg h-64 transition-all duration-300 hover:border-brand-primary group cursor-pointer">
+          <p class="font-secondary text-sm md:text-base text-brand-secondary/80 group-hover:text-brand-secondary transition-colors duration-300 leading-relaxed italic">
+            "{t.quote}"
+          </p>
+          
+          <div class="flex flex-col items-start gap-1 mt-4">
+            <h4 class="font-primary font-bold text-sm md:text-base text-brand-secondary">{t.author}</h4>
+            <p class="font-secondary text-xs text-brand-secondary/60">
+              {t.role}, <span class="text-brand-primary font-medium">{t.company}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</div>

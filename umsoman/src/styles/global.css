@@ -27,7 +27,7 @@ html.lenis body {
 
 
 @theme {
-  --color-brand-bg: #FFF6E4;
+  --color-brand-bg: #FFF6E4;  
   --color-brand-primary: #FDAF17;
   --color-brand-secondary: #424242;
 
@@ -223,6 +223,27 @@ html.lenis body {
   }
 }
 
+@layer utilities {
+  /* The custom linear loader track slide */
+  @keyframes shimmer-wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+
+  /* Structural Exit Animations */
+  .splash-exit-active {
+    /* Triggers a dramatic vertical scale clip foldout upwards like folding a sheet of cardstock */
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .splash-content-fade {
+    transform: scale(0.92);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+
 /* Modern browsers */
 ::selection {
   background-color: var(--color-brand-secondary); /* Changes the highlight background */
@@ -235,15 +256,47 @@ html.lenis body {
   color: var(--color-brand-bg);   
 }
 
+.custom-cursor-area {
+  cursor: url('../assets/custom-cursor.svg'), auto; 
+}
 
+@media (min-width: 1024px) {
+  /* 🎯 Target only your specific container area */
+  .custom-cursor-area {
+    /* 1. Points to your public folder root asset */
+    /* 2. Sets a custom click-point offset coordinate (0 0 is top-left, e.g., for an origami arrow tip) */
+    /* 3. Uses 'auto' as a mandatory fallback if the browser fails to render the SVG file */
+    cursor: url('/custom-cursor.svg') 0 0, auto;
+  }
 
+  /* 🔗 Optional: Change the cursor state dynamically when hovering over clickable items *inside* that div */
+  .custom-cursor-area a,
+  .custom-cursor-area button {
+    cursor: url('/custom-cursor.svg') 0 0, pointer;
+  }
+}
+
+@layer utilities {
+  @keyframes testimonial-loop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Accounts for exactly half the track length plus the column gap margin factor */
+      transform: translateX(calc(-50% - 0.75rem));
+    }
+  }
+
+  .animate-testimonial-loop {
+    animation: testimonial-loop 45s linear infinite;
+  }
+}
 
 /*Font Globals*/
 
 h1 {
   font-family: var(--font-primary);
   font-weight: medium;
-  color: var(--color-brand-secondary);
 }
 
 p {
@@ -256,6 +309,14 @@ button {
 
 html, body {
   -ms-overflow-style: none;  
-  scrollbar-width: none;     
+  scrollbar-width: none;  
+  height: 100vh; 
 }
+
+.custom-cursor-area {
+  cursor: url('../../public/custom-cursor.svg'), auto; 
+    
+}
+
+
 
