@@ -292,6 +292,27 @@ html.lenis body {
   }
 }
 
+@layer utilities {
+  @media (min-width: 1024px) {
+    .parallax-video-box {
+      animation: expand-video linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+
+    @keyframes expand-video {
+      0% {
+        transform: scale(0.85) translateY(40px);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1;
+      }
+    }
+  }
+}
+
 /*Font Globals*/
 
 h1 {
