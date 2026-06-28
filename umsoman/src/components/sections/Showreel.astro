@@ -17,7 +17,7 @@ const { videoMp4, videoWebm } = Astro.props;
     muted
     controls
     playsinline
-    preload="none"
+    preload="auto"
   >
     {videoWebm && <source src={videoWebm} type="video/webm" />}
     <source src={videoMp4} type="video/mp4" />
