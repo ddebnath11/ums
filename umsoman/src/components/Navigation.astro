@@ -20,7 +20,7 @@ const { pill } = Astro.props;
   </div>
 
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-    <div class="w-fit border border-brand-secondary p-2 md:p-4 lg:p-4 rounded-full text-xs font-secondary md:text-sm lg:text-[16px] pointer-events-auto">
+    <div class="w-fit border border-brand-secondary p-2 md:p-4 lg:p-4 rounded-full text-xs font-secondary md:text-sm lg:text-[16px] pointer-events-auto lowercase tracking-[-0.03em]">
       {pill}
     </div>
   </div>
@@ -56,11 +56,11 @@ const { pill } = Astro.props;
   class="p-4 fixed inset-0 z-40 bg-brand-bg/90 backdrop-blur-md flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
 >
   <nav class="flex flex-col items-center gap-8 text-4xl font-secondary font-bold p-[2rem]">
-    <a href="/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Home</a>
-    <a href="/solutions/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Solutions</a>
-    <a href="/about/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">About</a>
-    <a href="/work/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Work</a>
-    <a href="/blog/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110">Blog</a>
+    <a href="/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110 lowercase">Home</a>
+    <a href="/solutions/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110 lowercase">Solutions</a>
+    <a href="/about/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110 lowercase">About</a>
+    <a href="/work/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110 lowercase">Work</a>
+    <a href="/blog/" class="text-brand-secondary transform transition-all duration-200 hover:text-brand-primary hover:scale-110 lowercase">Blog</a>
   </nav>
 
   <div class="absolute bottom-8 left-0 right-0 px-[2rem]">
