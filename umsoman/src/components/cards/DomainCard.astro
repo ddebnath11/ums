@@ -15,8 +15,8 @@ const {
   cardTitle, domainOne, domainTwo, domainThree, domainOneC, domainTwoC, domainThreeC
 } = Astro.props;
 ---
-<div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/0 p-4 rounded-4xl bg-brand-bg/85 backdrop-blur-md">
-    <h2 class="text-2xl lg:text-4xl">{ cardTitle }</h2>
+<div class="w-full flex flex-col items-start justify-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-4xl bg-brand-bg/85 backdrop-blur-md">
+    <h2 class="text-2xl lg:text-4xl lowercase">{ cardTitle }</h2>
     
     <div class="w-full flex flex-row items-center text-left gap-6 border border-brand-secondary/60 p-4  rounded-full bg-brand-bg transition-all duration-200 ease-out cursor-pointer
     lg:hover:-translate-y-1 lg:hover:-translate-x-0.5 lg:hover:shadow-[4px_4px_0px_0px_#FDAF17]">
@@ -24,7 +24,7 @@ const {
         <div class={`w-5 h-5 ${domainOneC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0 cursor-pointer`}>
         </div>
     
-        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainOne}</p>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px] lowercase">{domainOne}</p>
     
     </div>
 
@@ -33,7 +33,7 @@ const {
         {/* Fixed Dynamic Syntax */}
         <div class={`w-5 h-5 ${domainTwoC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0`}>
         </div>
-        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainTwo}</p>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px] lowercase">{domainTwo}</p>
     </div>
 
     <div class="w-full flex flex-row items-center text-left gap-6 border border-brand-secondary/60 p-4 rounded-full bg-brand-bg transition-all duration-200 ease-out cursor-pointer
@@ -41,6 +41,7 @@ const {
         {/* Fixed Dynamic Syntax */}
         <div class={`w-5 h-5 ${domainThreeC} rounded-full rounded-tr-none lg:w-[30px] lg:h-[30px] shrink-0`}>
         </div>
-        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px]">{domainThree}</p>
+        <p class="font-secondary text-sm text-brand-secondary md:text-sm lg:text-[20px] lowercase">{domainThree}</p>
     </div>
 </div>
+

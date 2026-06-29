@@ -1,12 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
 
 const title = "Our Solutions";
 const subtitle = "United Media Services"; 
 ---
 
-<Layout title={`${title} - ${subtitle}`}>
+<Layout title={`${title} - ${subtitle}`} pill="solutions">
   
-  <!-- Your Solutions page unique components go here -->
+  <Hero 
+      titleBeforeGold="Everything you need, in" 
+      titleGoldWord="one place"
+      subtitle="We'll help you in every domain that builds a brand"
+      buttonAction="GET STARTED"
+  />
 
 </Layout>
